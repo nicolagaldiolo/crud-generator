@@ -230,8 +230,9 @@ EOD;
      */
     protected function replaceHidden(&$stub, $hidden) : CrudModelCommand
     {
-        $hiddenCode = 'protected $hidden = ' . $hidden;
+        $hiddenCode = $hidden ? 'protected $hidden = ' . $hidden : '';
         $stub = str_replace('{{hidden}}', $hiddenCode, $stub);
         return $this;
     }
+
 }
